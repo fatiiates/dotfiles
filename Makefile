@@ -1,23 +1,24 @@
+# define .env variables
+include .env
+$(eval export $(shell sed -ne 's/ *#.*$$//; /./ s/=.*$$// p' .env))
+
 all: clean bootstrap
 
 clean:
-	./lib/utils.sh remove_symlinks
-	./lib/utils.sh remove_oh_my_zsh
+	${DOTFILES_PATH}/run uninstall_dotfiles
 
 bootstrap:
-	./bootstrap.sh
+	${DOTFILES_PATH}/run
 	zsh
 
 install_brew:
-	./bootstrap.sh brew	
+	${DOTFILES_PATH}/run install_brew	
 
 install_brew_packages:	
-	./bootstrap.sh brew-packages
+	${DOTFILES_PATH}/run install_brew_packages
 
-install_dotfiles:
-	./bootstrap.sh dotfiles
+install_dotfiles: create_zshenv
+	${DOTFILES_PATH}/run install_dotfiles
 
-bootstrap_symlinks:
-	./bootstrap.sh bootstrap-symlinks
-
-install_dotfiles_symlinks: install_dotfiles bootstrap_symlinks
+create_zshenv:
+	${DOTFILES_PATH}/lib/utils.sh create_zshenv

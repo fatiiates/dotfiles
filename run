@@ -1,0 +1,70 @@
+#!/bin/sh
+
+source $DOTFILES_PATH/lib/utils.sh
+
+function uninstall_dotfiles() {
+    start_msg "uninstalling dotfiles..."
+
+    for i in $(find $DOTFILES_PATH -name uninstall.sh); do
+        source $i &
+        wait $!
+    done;
+
+    done_msg "uninstalling dotfiles"
+}
+
+function install_brew() {
+    start_msg "installing homebrew..."
+
+    if test ! $(which brew); then
+        echo "installing homebrew..."
+        ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    fi
+
+    done_msg "installing homebrew"
+}
+
+function install_brew_packages() {
+    start_msg "installing brew packages..."
+
+    brew update
+    brew bundle
+
+    done_msg "installing brew packages"
+}
+
+function install_dotfiles {
+    start_msg "installing dotfiles..."
+
+    for i in $(find $DOTFILES_PATH -name install.sh | exclude_symlink_install); do
+        source $i &
+        wait $!
+    done;
+
+    # symlinks must be run last
+    source $DOTFILES_PATH/link/install.sh
+
+    done_msg "installing dotfiles"
+}
+
+function bootstrap() {
+    start_msg "BOOTSTRAPPING..."
+
+    install_brew
+    install_brew_packages
+    install_dotfiles
+
+    done_msg "BOOTSTRAPPING"
+}
+
+if [ $1 = "install_brew" ]; then
+    install_brew
+elif [ $1 = "install_brew_packages" ]; then
+    install_brew_packages
+elif [ $1 = "install_dotfiles" ]; then
+    install_dotfiles
+elif [ $1 = "uninstall_dotfiles" ]; then
+    uninstall_dotfiles
+else
+    bootstrap
+fi
