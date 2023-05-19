@@ -24,6 +24,20 @@ function list_link_files {
     ls -A link | exclude_special_files
 }
 
+function get_confirmation {
+    if [ "$1" != "--confirmation" ]; then
+        return 0
+    fi
+
+    read -p "Are you sure? [y/N] " -n 1 -r
+    echo
+    case "$REPLY" in 
+    n|N ) error_msg "cancelled"; exit 1;;
+    y|Y ) ;;
+    * ) error_msg "invalid command"; get_confirmation;;
+    esac
+}
+
 function start_msg {
     BLUE='\033[0;34m'
     NC='\033[0m' # No Color
@@ -55,25 +69,6 @@ function load_dotenv {
         error_msg ".env file does not exist"
         exit
     fi
-}
-
-function create_zshenv {
-    start_msg "creating .zshenv from .env files..."
-
-    # writes a warning for .zshenv
-    rm -rf $DOTFILES_PATH/link/.zshenv
-    echo "# This is an auto-generated file please do not modify\n" > $DOTFILES_PATH/link/.zshenv
-
-    # this writes the brew env file first
-    echo "\n# $DOTFILES_PATH/brew/.env\n" >> $DOTFILES_PATH/link/.zshenv
-    cat $DOTFILES_PATH/brew/.env | sed 's/#.*//g' | sed '/^\s*$/d' | sed 's/^/export /' >> "$DOTFILES_PATH/link/.zshenv"
-
-    for i in $(find $DOTFILES_PATH -name .env | exclude_brew_env); do
-        echo "\n# $i\n" >> $DOTFILES_PATH/link/.zshenv
-        cat "$i" | sed 's/#.*//g' | sed '/^\s*$/d' | sed 's/^/export /' >> "$DOTFILES_PATH/link/.zshenv"
-    done;
-
-    done_msg "creating .zshenv from .env files"
 }
 
 function update_environment_variable {

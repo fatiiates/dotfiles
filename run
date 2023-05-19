@@ -47,14 +47,38 @@ function install_dotfiles {
     done_msg "installing dotfiles"
 }
 
-function bootstrap() {
-    start_msg "BOOTSTRAPPING..."
+function create_zshenv {
+    start_msg "creating .zshenv from .env files..."
 
-    install_brew
-    install_brew_packages
-    install_dotfiles
+    # writes a warning for .zshenv
+    rm -rf $DOTFILES_PATH/link/.zshenv
+    echo "# This is an auto-generated file please do not modify\n" > $DOTFILES_PATH/link/.zshenv
 
-    done_msg "BOOTSTRAPPING"
+    # this writes the brew env file first
+    echo "\n# $DOTFILES_PATH/brew/.env\n" >> $DOTFILES_PATH/link/.zshenv
+    cat $DOTFILES_PATH/brew/.env | sed 's/#.*//g' | sed '/^\s*$/d' | sed 's/^/export /' >> "$DOTFILES_PATH/link/.zshenv"
+
+    for i in $(find $DOTFILES_PATH -name .env | exclude_brew_env); do
+        echo "\n# $i\n" >> $DOTFILES_PATH/link/.zshenv
+        cat "$i" | sed 's/#.*//g' | sed '/^\s*$/d' | sed 's/^/export /' >> "$DOTFILES_PATH/link/.zshenv"
+    done;
+
+    done_msg "creating .zshenv from .env files"
+}
+
+function check {
+    if [ ! -f .env ]; then
+        error_msg ".env file is not exists, just copy .env.example to .env and fill it"
+        exit 1
+    fi
+
+    for i in $(list_link_files); do
+        if [ -f "$HOME/$i" ]; then
+            info_msg "will be removed $HOME/$i"
+        fi
+    done;
+
+    get_confirmation $1
 }
 
 if [ $1 = "install_brew" ]; then
@@ -65,6 +89,11 @@ elif [ $1 = "install_dotfiles" ]; then
     install_dotfiles
 elif [ $1 = "uninstall_dotfiles" ]; then
     uninstall_dotfiles
+elif [ $1 = "create_zshenv" ]; then
+    create_zshenv
+elif [ $1 = "check" ]; then
+    check $2
 else
-    bootstrap
+    error_msg "invalid command"
+    exit 1
 fi

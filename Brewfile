@@ -108,7 +108,6 @@ brew 'kind'
 brew 'skaffold'
 brew 'kustomize'
 brew 'cfssl'
-brew 'podman'
 cask 'docker' # docker for desktop
 brew 'ko'
 brew 'dive'

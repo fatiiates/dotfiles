@@ -1,4 +1,18 @@
-# dotfiles
+# INSTALLATION
+
+Whatever you want to do you should run check command at first:
+
+    make check
+
+If you are starting from over you can use directly:
+
+    make
+
+If you want to just install dotfiles configuration:
+
+    make all_wout_brew
+
+If you want to more deep knowledge you should check `Makefile`.
 
 # DEDICATED FILES
 ## .env

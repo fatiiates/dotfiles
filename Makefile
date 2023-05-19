@@ -1,15 +1,29 @@
 # define .env variables
-include .env
-$(eval export $(shell sed -ne 's/ *#.*$$//; /./ s/=.*$$// p' .env))
+ifneq (,$(wildcard ./.env))
+    include .env
+    export
+endif
+# include .env
+# $(eval export $(shell sed -ne 's/ *#.*$$//; /./ s/=.*$$// p' .env))
+.PHONY: all clean check install_brew install_brew_packages install_dotfiles create_zshenv
 
-all: clean bootstrap
+all: check_w_confirmation clean bootstrap
+all_wout_brew: check_w_confirmation clean bootstrap_wout_brew
 
-clean:
+clean: check_w_confirmation remove
+
+remove:
 	${DOTFILES_PATH}/run uninstall_dotfiles
 
-bootstrap:
-	${DOTFILES_PATH}/run
-	zsh
+check_w_confirmation:
+	${DOTFILES_PATH}/run check --confirmation
+
+check:
+	${DOTFILES_PATH}/run check
+
+bootstrap: install_brew install_brew_packages install_dotfiles create_zshenv
+
+bootstrap_wout_brew: install_dotfiles create_zshenv
 
 install_brew:
 	${DOTFILES_PATH}/run install_brew	
