@@ -92,6 +92,8 @@ brew 'fortio'
 brew "cmake"
 brew "coreutils"
 brew "curl"
+cask "wireshark"
+brew "exiftool"
 
 # Commit signing
 brew 'pinentry-mac'
