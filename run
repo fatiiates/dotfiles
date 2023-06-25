@@ -1,12 +1,12 @@
 #!/bin/sh
 
-source $DOTFILES_PATH/lib/utils.sh
+. $DOTFILES_PATH/lib/utils.sh
 
 function uninstall_dotfiles() {
     start_msg "uninstalling dotfiles..."
 
     for i in $(find $DOTFILES_PATH -name uninstall.sh); do
-        source $i &
+        . $i &
         wait $!
     done;
 
@@ -37,12 +37,12 @@ function install_dotfiles {
     start_msg "installing dotfiles..."
 
     for i in $(find $DOTFILES_PATH -name install.sh | exclude_symlink_install); do
-        source $i &
+        . $i &
         wait $!
     done;
 
     # symlinks must be run last
-    source $DOTFILES_PATH/link/install.sh
+    . $DOTFILES_PATH/link/install.sh
 
     done_msg "installing dotfiles"
 }

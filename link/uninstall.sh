@@ -1,6 +1,6 @@
 #!/bin/sh
 
-source $DOTFILES_PATH/lib/utils.sh
+. $DOTFILES_PATH/lib/utils.sh
 
 start_msg "removing symlinks..."
 

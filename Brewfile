@@ -62,7 +62,7 @@ brew 'git' # no force-bottle: git --exec-path doesn't work, remote helpers missi
 brew 'gitsign'
 brew 'gh'
 brew 'hg'
-brew 'interactive-rebase-tool'
+brew 'git-interactive-rebase-tool'
 brew 'gti'
 brew 'prm'
 brew 'go'
