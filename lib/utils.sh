@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 function escape_slashes {
     sed 's/\//\\\//g' 

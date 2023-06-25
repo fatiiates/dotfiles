@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # System
 alias ll='ls -lGaf'

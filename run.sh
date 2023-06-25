@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 . $DOTFILES_PATH/lib/utils.sh
 
@@ -77,7 +77,7 @@ function check {
             info_msg "will be removed $HOME/$i"
         fi
     done;
-
+    
     get_confirmation $1
 }
 

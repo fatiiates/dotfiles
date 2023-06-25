@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 autoload -U compinit; compinit
 

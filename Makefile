@@ -13,26 +13,26 @@ all_wout_brew: check_w_confirmation clean bootstrap_wout_brew
 clean: check_w_confirmation remove
 
 remove:
-	${DOTFILES_PATH}/run uninstall_dotfiles
+	${DOTFILES_PATH}/run.sh uninstall_dotfiles
 
 check_w_confirmation:
-	${DOTFILES_PATH}/run check --confirmation
+	${DOTFILES_PATH}/run.sh check --confirmation
 
 check:
-	${DOTFILES_PATH}/run check
+	${DOTFILES_PATH}/run.sh check
 
 bootstrap: install_brew install_brew_packages install_dotfiles create_zshenv
 
 bootstrap_wout_brew: install_dotfiles create_zshenv
 
 install_brew:
-	${DOTFILES_PATH}/run install_brew	
+	${DOTFILES_PATH}/run.sh install_brew	
 
 install_brew_packages:	
-	${DOTFILES_PATH}/run install_brew_packages
+	${DOTFILES_PATH}/run.sh install_brew_packages
 
 install_dotfiles: create_zshenv
-	${DOTFILES_PATH}/run install_dotfiles
+	${DOTFILES_PATH}/run.sh install_dotfiles
 
 create_zshenv:
-	${DOTFILES_PATH}/run create_zshenv
+	${DOTFILES_PATH}/run.sh create_zshenv
