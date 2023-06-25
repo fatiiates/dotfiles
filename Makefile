@@ -35,4 +35,4 @@ install_dotfiles: create_zshenv
 	${DOTFILES_PATH}/run install_dotfiles
 
 create_zshenv:
-	${DOTFILES_PATH}/lib/utils.sh create_zshenv
+	${DOTFILES_PATH}/run create_zshenv
