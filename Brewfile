@@ -153,7 +153,8 @@ cask 'shureplus-motiv'
 cask 'vlc'
 
 # Cloud providers
-brew "awscli"
-brew "azure-cli"
-cask "aws-vault"
 cask "google-cloud-sdk"
+brew "awscli"
+brew "aws-amplify"
+cask "aws-vault"
+brew "azure-cli"
