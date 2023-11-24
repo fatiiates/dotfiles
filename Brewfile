@@ -36,17 +36,22 @@ brew 'ncdu'
 brew 'dust'
 brew 'z'
 brew 'exa'
+brew 'defaultbrowser'
 
 # Development & Power Tools
 cask 'iterm2'
 cask 'warp'
+cask 'android-studio'
 cask 'visual-studio-code'
 cask 'postman'
 cask 'goland'
 cask 'dbeaver-community'
 cask 'azure-data-studio'
+cask 'pgadmin4'
 cask 'menumeters'
 cask 'ngrok'
+cask 'wireshark'
+cask 'alfred'
 brew 'bash'
 brew 'bash-completion'
 brew 'zsh-syntax-highlighting'
@@ -72,7 +77,7 @@ brew 'fzf'
 brew 'jq'
 brew 'jless'
 brew 'node'
-brew "yarn"
+brew 'yarn'
 brew 'python3'
 brew 'openssl'
 brew 'openssh'
@@ -91,11 +96,10 @@ brew 'shellcheck'
 brew 'telnet'
 brew 'mitmproxy'
 brew 'fortio'
-brew "cmake"
-brew "coreutils"
-brew "curl"
-cask "wireshark"
-brew "exiftool"
+brew 'cmake'
+brew 'coreutils'
+brew 'curl'
+brew 'exiftool'
 
 # Commit signing
 brew 'pinentry-mac'
@@ -118,16 +122,17 @@ brew 'dive'
 brew 'crane'
 brew 'cosign'
 brew 'pack'
-brew "terraform"
+brew 'terraform'
 
 # Fun tools
 brew 'asciinema'
 brew 'lolcat'
 
-
 # Desktop Software
 cask 'clipy'
 cask 'zoom'
+cask 'muzzle'
+cask 'microsoft-teams'
 cask 'flux'
 cask 'slack'
 cask 'skype'
@@ -137,6 +142,10 @@ cask 'spotify'
 cask '1password'
 cask 'firefox'
 cask 'brave-browser'
+cask 'chromedriver'
+cask 'chromium'
+cask 'google-chrome'
+cask 'microsoft-edge'
 cask 'open-in-code'
 cask 'bitbar'
 cask 'discord'
@@ -147,6 +156,7 @@ cask 'anydesk'
 cask 'drawio'
 cask 'microsoft-office'
 cask 'logi-options-plus'
+cask 'android-file-transfer'
 
 # Streaming software
 cask 'obs'
@@ -155,8 +165,8 @@ cask 'shureplus-motiv'
 cask 'vlc'
 
 # Cloud providers
-cask "google-cloud-sdk"
-brew "awscli"
-brew "aws-amplify"
-cask "aws-vault"
-brew "azure-cli"
+cask 'google-cloud-sdk'
+brew 'awscli'
+brew 'aws-amplify'
+cask 'aws-vault'
+brew 'azure-cli'
