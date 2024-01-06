@@ -100,6 +100,7 @@ brew 'cmake'
 brew 'coreutils'
 brew 'curl'
 brew 'exiftool'
+brew 'jmeter'
 
 # Commit signing
 brew 'pinentry-mac'
@@ -157,6 +158,7 @@ cask 'drawio'
 cask 'microsoft-office'
 cask 'logi-options-plus'
 cask 'android-file-transfer'
+cask 'the-unarchiver'
 
 # Streaming software
 cask 'obs'
