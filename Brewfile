@@ -126,7 +126,7 @@ brew 'crane'
 brew 'cosign'
 brew 'pack'
 brew 'terraform'
-brew 'orbstack'
+cask 'orbstack'
 
 # Fun tools
 brew 'asciinema'

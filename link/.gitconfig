@@ -1,5 +1,5 @@
-[user]
-        name = fatiiates
-        email = fatiiates@gmail.com
 [core]
-        editor = code --wait
+	editor = code --wait
+[user]
+	name = fatiiates
+	email = fatiiates@gmail.com
