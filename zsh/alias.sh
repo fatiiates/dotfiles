@@ -34,6 +34,7 @@ alias gpsuo="git push --set-upstream origin (git rev-parse --aliasev-ref HEAD)"
 alias grv="git remote -v"
 alias gsh="git stash"
 alias gst="git status -sb"
+alias grmcache='git rm --cached $(git ls-files -c -i -X .gitignore)'
 
 # go
 alias gob="go build"
