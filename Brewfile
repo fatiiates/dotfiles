@@ -3,9 +3,10 @@ tap 'homebrew/bundle'
 tap 'homebrew/core'
 tap 'ldez/tap'
 tap 'sigstore/tap'
-tap 'homeport/tap' # dyff
+tap 'homeport/tap'
 tap 'buildpacks/tap'
-tap 'homebrew/cask-fonts'         # You only need to do this once!
+tap 'homebrew/cask-fonts'
+tap 'knative/client'
 
 # Fonts
 cask 'font-meslo-lg-nerd-font'
@@ -37,6 +38,8 @@ brew 'dust'
 brew 'z'
 brew 'exa'
 brew 'defaultbrowser'
+brew 'poppler'
+brew  'imagemagick'
 
 # Development & Power Tools
 cask 'iterm2'
@@ -64,7 +67,7 @@ brew 'colordiff'
 brew 'diff-so-fancy'
 brew 'git-delta'
 brew 'dyff'
-brew 'git' # no force-bottle: git --exec-path doesn't work, remote helpers missing from path
+brew 'git'
 brew 'gitsign'
 brew 'gh'
 brew 'hg'
@@ -119,13 +122,14 @@ brew 'kind'
 brew 'skaffold'
 brew 'kustomize'
 brew 'cfssl'
-cask 'docker' # docker for desktop
+cask 'docker'
 brew 'ko'
 brew 'dive'
 brew 'crane'
 brew 'cosign'
 brew 'pack'
 brew 'terraform'
+brew 'kn'
 cask 'orbstack'
 
 # Fun tools
@@ -176,3 +180,4 @@ brew 'awscli'
 brew 'aws-amplify'
 cask 'aws-vault'
 brew 'azure-cli'
+brew 'vercel-cli'

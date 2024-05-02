@@ -2,6 +2,7 @@
 
 # System
 alias ll='ls -lGaf'
+alias rm='rm -i'
 
 if [ -x "$(command -v exa)" ]; then
     alias ls="exa"
@@ -15,6 +16,7 @@ alias k='kubectl'
 
 # git
 alias gad="git add"
+alias gacp='f() { git add . && git commit -m "$1" && git push origin $(git branch --show-current); }; f'
 alias gbn="git rev-parse --aliasev-ref HEAD"
 alias gcd1="git clone --depth 1 https://github.com/"
 alias gcl="git clean"
