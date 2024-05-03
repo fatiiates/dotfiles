@@ -39,7 +39,7 @@ brew 'z'
 brew 'exa'
 brew 'defaultbrowser'
 brew 'poppler'
-brew  'imagemagick'
+brew 'imagemagick'
 
 # Development & Power Tools
 cask 'iterm2'
@@ -106,6 +106,7 @@ brew 'coreutils'
 brew 'curl'
 brew 'exiftool'
 brew 'jmeter'
+brew 'golanci-lint'
 
 # Commit signing
 brew 'pinentry-mac'
