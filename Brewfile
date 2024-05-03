@@ -106,7 +106,7 @@ brew 'coreutils'
 brew 'curl'
 brew 'exiftool'
 brew 'jmeter'
-brew 'golanci-lint'
+brew 'golangci-lint'
 
 # Commit signing
 brew 'pinentry-mac'
